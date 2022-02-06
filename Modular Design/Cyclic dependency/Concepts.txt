@@ -1,0 +1,64 @@
+
+Loose Coupling: Loose coupling in software development vocabulary means reducing dependencies of a module, 
+                class, or function that uses different modules, classes, or functions directly. Loosely coupled
+                systems tend to be easier to maintain and more reusable.
+
+
+Tight Coupling: The opposite of loose coupling is tight coupling, where all the objects mentioned are more dependent on one another.
+
+
+Coupling criteria can be defined by three parameters:
+
+- Size
+
+- Visibility
+
+- Flexibility
+.
+
+    Generally speaking, functions and methods that take one parameter are more loosely coupled than functions that take 10. 
+    A loosely coupled function should not have more than two arguments; more than two should require justification.
+
+    A class with too many methods is not an example of loosely coupled code.
+
+Cohesion: Cohesion is usually discussed together with loose coupling. It interprets classes, 
+        modules, and functions and defines if all of them aim for the same goal. The purpose of a class 
+        or module should be focused on one thing and not too broad in its actions. Modules that contain 
+        strongly related classes and functions can be considered to have strong or high cohesion.
+
+---------------------------------------------------------------------------------------------------------------------------------
+                        def save_and_notify(device, users):
+                            filename = '/opt/var/'
+                            file = open(f'{filename}', "w")
+                            file.write(device.show())
+                            file.close
+                            for user in users:
+                                sendEmail(user)
+----------------------------------------------------------------------------------------------------------------------------------
+    The save_and_notify() function is an example of low cohesion, 
+    because even the name suggests that the code in the function performs more than one action; 
+    it backs up the data and notifies the users.
+
+A function should focus on doing one thing well. When a function executes a single thing, it is considered a strong, 
+functional cohesion as described by McConnell.
+
+    Here is an example of a code with lower cohesion:
+------------------------------------------------------------------------------------------------------------------------
+
+                            def log(logdata): 
+                                file = open('/var/logs/app.log}', "w") 
+                                file.write(logdata) 
+                                file.close()
+                                logdata = []
+                                return logdata
+
+------------------------------------------------------------------------------------------------------------------------
+
+    
+In the log() function, the collected logs in the logdata variable are first being logged to disk, 
+and then the same data is cleared in the next step. 
+
+This is an example of communicational cohesion, 
+in which there are multiple operations that need to be performed in a specific order, and those steps operate on the same data. 
+
+
