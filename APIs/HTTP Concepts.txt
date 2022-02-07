@@ -1,0 +1,170 @@
+
+HTTP Methods: HTTP methods (sometimes also known as HTTP verbs, although they can also be nouns) are a predefined set of request methods that 
+represent desired actions that should be performed on the resources. They are used in HTTP requests as a part of the request line.
+
+
+
+GET:
+
+Requests a representation of a specific resource. Should only retrieve data and is considered safe and idempotent.
+
+POST:
+
+Used to submit an entity to the specified resource, often causing a state change or side effects on the server. 
+Requests made with POST should include a request body.
+
+DELETE:
+
+Deletes the specified resource. Subsequent calls should not cause any side effects.
+
+PUT:
+
+Replaces all current representations of the target resource with the request payload.
+
+HEAD:
+
+Asks for a response identical to that of a GET request, but without the response body. Useful for validating resource availability.
+
+PATCH:
+
+Applies partial modification to a resource. Useful for instances where using PUT might be too cumbersome. 
+PATCH is not an idempotent method and is used for merging resources.
+
+
+--------------------------------------------------------------------------------------
+HTTP CODES
+--------------------------------------------------------------------------------------
+
+1xx (Informational): Most codes from this category indicate that the request was received and understood. 
+They usually mean that the request processing continues and alerts the client to wait for the final response. They are rarely used.
+==========================================================================================================================================================================================
+
+2xx (Successful):
+
+200 (OK): Standard response for a successful HTTP request. The information returned depends on the request method.
+
+201 (Created): Indicates that a resource has been successfully created.
+
+204 (No content): The server has successfully fulfilled the request and the response body is empty. 
+A 204 code is useful when you want to confirm that a POST request was received by the server.
+
+==========================================================================================================================================================================================
+3xx (Redirection):
+
+301 (Moved Permanently): This and all future requests should be directed to the given URI.
+
+302 (Found): The requested resource resides temporarily under a different URI.
+
+304 (Not Modified): Indicates that the resource has not been modified since the version specified by the request headers. 
+Useful for reducing overhead.
+
+==========================================================================================================================================================================================
+
+4xx (Client error):
+
+400 (Bad Request): The server cannot process the request because of a malformed request (bad syntax, deceptive routing, size too large).
+
+401 (Unauthorized): The request requires a valid authorized user. It usually means that the user is not authenticated or that authentication failed.
+
+403 (Forbidden): The request was valid, but the server is refusing action. The user might not have the necessary permissions for a resource.
+
+404 (Not Found): The server has not found anything matching the request URI. No indication is given whether the condition is temporary or permanent.
+
+Other status codes include more specific information about the request error.
+
+==========================================================================================================================================================================================
+
+5xx (Server error)
+
+500 (Internal Server Error): A generic error message, given when an unexpected condition was encountered, and no more specific message is suitable.
+
+501 (Not Implemented): The server does not support the functionality required to fulfil the request.
+
+503 (Service Unavailable): The service cannot handle the request. It is usually a temporary condition attributed to a server crash, maintenance, overload, and so on.
+
+
+
+
+******************************************************************************
+
+There are four distinct types of headers:
+
+
+General headers:
+
+Headers from this category are not specific to any particular kind of message.
+
+They are primarily used to communicate information about the message itself and how to process it.
+
+Cache-Control: Specifies caching parameters.
+
+Connection: Defines connection persistency.
+
+Date: A datetime time stamp.
+
+
+
+
+
+Request headers:
+
+These headers carry information about the resource to be fetched.
+
+They also contain the information about the client.
+
+Accept-(*): A subset of headers that define the preferred response format.
+
+Authorization: Usually contains a Base64-encoded authentication string, composed of username and password for basic HTTP authentication.
+
+Cookie: Contains a list of key-value pairs that contain additional information about the current session, user, browsing activity, or other stateful information.
+
+Host: Used to specify the Internet host and port number of the resource being requested. This header is required in request messages.
+
+User-Agent: Contains the information about the user agent originating the request.
+
+
+
+
+
+Response headers:
+
+These headers hold additional information about the response and the server providing it.
+
+Age: Conveys the amount of time since the response was generated.
+
+Location: Used to redirect the client to a location other than the request URI from a header.
+
+Server: Contains the information about the software used by the origin server to handle the request.
+
+Set-Cookie: Used to send cookies from the server to the client. It contains a list of key-value pairs, called cookies.
+
+
+
+
+Entity headers:
+
+these headers contain information about the response body.
+
+Allow: Lists the supported methods identified by the requested resource.
+
+Content-Type: Indicates the media type of the body (also called Multipurpose Internet Mail Extensions [MIME] type), sent to the recipient. Used for content negotiation.
+
+Content-Language: Describes the language of the intended audience for the enclosed body.
+
+Content-Length: Indicates the size of the body.
+
+Content-Location: Used to supply the resource location for the entity that is accessible from somewhere else than the request URI.
+
+Expires: Gives the datetime after which the response is considered stale.
+
+Last-Modified: Indicates the date and time at which the origin server believes the variant was last modified.
+
+
+
+
+
+
+
+
+
+

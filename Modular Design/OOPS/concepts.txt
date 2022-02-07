@@ -1,0 +1,37 @@
+
+The concepts that define what OOP enables:
+
+1. Abstraction
+
+2. Encapsulation
+
+3. Inheritance
+
+4. Polymorphism
+
+
+
+    Abstraction: When defining an abstraction, your objective is to expose a way of accessing the data of the object 
+                without knowing the details of the implementation. Abstract classes are usually not instantiated; 
+                they require subclasses that provide the behavior of the abstract methods. A subclass cannot be 
+                instantiated until it provides some implementation of the methods that are defined in the abstract
+                class from which it is derived. It can also be said that the methods need to be overridden.
+
+
+    Encapsulation: It presents a process of concealing data and methods of an object, with the 
+                intention to hide the implementation and restrict direct access to the object data.
+                In Python, encapsulation with hiding data from others is not so explicitly defined and can be 
+                interpreted rather as a convention. It does not have an option to strictly define data being 
+                private or protected. However, in Python, you would use the notation of prefixing the name 
+                with an underscore (or double underscore) to mark something as nonpublic data.
+
+    
+
+Unified Modeling Language:
+--------------------------
+
+The UML can sketch your program before you start writing code for it. It can define 
+many details of a class and the connection between other classes. In this example, the Router object would inherit all the 
+fields and methods from the Device object. Class inheritance is shown with a solid line and an arrow at the end.
+
+

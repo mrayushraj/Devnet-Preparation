@@ -1,0 +1,120 @@
+
+There are many variations of the testing pyramid concept, and perhaps the most common is separating layers as follows 
+(from lowest layer to highest):
+
+1. Unit testing: Test the smallest units of software. The unit can be a module, function, class, procedure, and so on.
+
+2. Integration testing: Test how software components work together.
+
+3. System testing: Test the functionality of the entire system.
+
+4. Acceptance testing: Test if the system is ready for delivery.
+
+
+
+Unit Testing: Unit testing should be conducted from the beginning of the development process. 
+                Unit under test (UUT) is a part of software that can be tested in isolation from the rest of the system, 
+                which means that unit tests should not test interaction between multiple system components. UUT can be 
+                something like a method, function, procedure, or even an entire class. Good unit tests should have the following characteristics
+
+    Reliable: The unit test should only fail if there is a bug in the UUT. Sometimes, this condition cannot be fulfilled. 
+                For example, when you try to write a unit test for a method of a class, and you need to call constructor, there is a 
+                chance that there is a bug in constructor, which will make the test for the method fail.
+
+    Isolated: UUT might interact with other components, which might have bugs of their own. Tests should be designed 
+                to isolate UUT from other components to avoid test failure in case one of those components would cause test failure. 
+                This test is usually done using test doubles.
+
+    Fast: Unit tests should cover a great number of test cases for each system unit. This condition results in 
+            a great number of tests. Unit tests are mostly run by developers who need quick feedback on whether the feature 
+            they are working on is working properly. Running a huge number of tests can be time-costly, so it is necessary 
+            that one unit test executes as fast as possible to reduce the time the developer has to wait for feedback.
+
+    Readable: Most of the systems are not finished work and are constantly evolving. Features change, 
+                and so do the needed tests. Maintaining tests becomes exponentially more difficult if great care 
+                is not given to their readability. One of the most recommended practices for writing unit tests 
+                is to follow the "Arrange, Act, Assert" principle:
+
+                    Arrange: Initialize variables and objects that are required for the test.
+
+                    Act: Run UUT.
+
+                    Assert: Check if the result matches what was expected.
+
+
+
+Integration Testing
+    Testing each component individually can give you great confidence that for a given input, you will get an output that matches the specification. This fact does not necessarily mean that a component can flawlessly work with other system components. The consequence of isolating a UUT from its dependencies is that you must replace those dependencies with test doubles, which requires abstracting some aspects of the required dependencies. After the unit testing is finished, you need to validate that the component can interact properly with actual system components. Combining and testing multiple components and their interaction is called integration testing. The component that is tested is called a component under test (CUT).
+
+    When conducting integration testing, you can use one of two approaches:
+
+    Big bang approach: It requires all components to be finished, and all tests use only actual components.
+
+    Incremental approach: The component can be tested when it is developed. This approach requires test doubles to replace some dependencies.
+
+
+    In case you need to test your component against another component that is not yet developed, you use test doubles to replace them. There are two types of test doubles used with integration testing:
+
+    Driver: When you are using the incremental bottom-up approach, it is expected that lower-level components are already developed and tested, but higher-level components are still not developed. A driver replaces missing higher-level components and provides the functionality of initiating and maintaining required interaction with the CUT.
+
+    Stub: A stub is used in the top-down approach. The stub replaces the unfinished lower-level components and provides basic functionality to enable required interaction for the CUT.
+
+
+
+
+System Testing
+    The next step after integration testing is system testing. This layer of testing probably is the hardest part to understand; there are many different expert views on what should be covered by this layer. The purpose of this testing layer is validating that the system or product works as a whole. A lot of aspects of a system could not be tested at lower testing layers and need to be tested before shipping the product to the client.  
+
+
+
+
+    The list of types of system tests that can be conducted is long and includes:
+
+    Functionality testing: Tests system functions. The focus is on defining system functions and validating that for a given input to the system, you get the desired output.
+
+    Installation testing: Tests installation procedures and shows if there may be some problems with setting up the system or product on a certain platform, operating system, or device.
+
+    Usability testing: Tests if the system satisfies requirements for the targeted user base—for example, if the system can be used by visual- or hearing-impaired users (mobile apps with haptic feedback).
+
+    Security testing: Tests the system for possible security breaches.
+
+    Performance testing: Tests system performance such as response times, average time to handle request, and number of requests sent in a certain amount of time.
+
+    Load testing: A subtype of performance testing. The goal is to validate if the system can handle the required load, such as the number of users who are connected at the same time or the minimum number of requests in the queue.
+
+    Stress testing: A subtype of performance testing. The goal is to validate the stability of a system in extreme conditions such as increased load above the maximum load that the system can handle.
+
+    Regression testing: Checks if a new version of a system is compatible with older versions.
+
+    Storage testing: Tests cover usage of Solid State Drives (SSDs) or hard disks—for example, disk storage capacity.
+
+    Configuration testing: A given system can have different running configurations. An example would be a cloud-based app that uses a configuration file to manage endpoints for used services, which depend on the region and location of the server where the app is deployed. Testing systems against different configurations can help expose fallacies in configuration handling
+
+    Compatibility testing: Checks if the system is compatible with different environments, operating systems, mobile devices, and so on.
+
+    Reliability testing: Tests if the same given input system gives the same output. An example of a case where you might get a different result with the same input is a system that delegates the execution of some task dynamically to multiple service instances (microservices) to decrease the load on a single service. When the task is run multiple times, it might be delegated to different services, each of which would return a different result, which would show that this part of the system is not reliable and needs to be fixed.
+
+    Recovery testing: Tests the system capability of recovery if there is a system failure.
+
+    Procedure testing: Tests the defined system procedures—for example, the procedure for migrating a database.
+
+
+
+---------------------------------------------------------------------------
+
+
+
+There are few types of acceptance testing:
+
+    Alpha testing: Done by developers in a development environment. Developers assume the user role and test the usability of the product.
+
+    Beta testing: A selected group of users gains access to the product before its release. They use the product and provide feedback, which helps to find missed bugs and increase product quality.
+
+    Contract testing: Validates that the product satisfies requirements that are requested by a given contract.
+
+    Regulation testing: Validates that the product satisfies legal and government regulations.
+
+    Operational testing: Validates that the product is ready for an operational environment. This testing includes validating workflows for client or business operations.
+
+
+

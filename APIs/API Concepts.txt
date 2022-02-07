@@ -1,0 +1,17 @@
+Network Configuration Protocol:
+
+Network Configuration Protocol (NETCONF) is a network device configuration management protocol that provides mechanisms to install, 
+manipulate, and delete configurations on network devices. It also provides a mechanism for notification subscriptions and 
+asynchronous message delivery.
+
+
+
+NETCONF consists of four layers:
+
+Content layer: Contains the actual configuration and notification data.
+
+Operations layer: Defines a set of base protocol operations to retrieve and edit the configuration data. Basic operations are <get-config>, <edit-config>, <lock>, <create-subscription>, <kill-session>, and similar.
+
+Message layer: Provides a mechanism for encoding remote procedure calls. They are encoded in RPC invocations (<rpc> message), replies (<rpc-reply>), and notifications (<notification>).
+
+Secure transport layer: Ensures a secure and reliable transport between a client and a server.
